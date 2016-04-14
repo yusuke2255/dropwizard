@@ -1,0 +1,53 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    repositories {
+       mavenCentral()
+    }
+
+    project.ext {
+      authorName = 'Y.K'
+      dropwizardVersion = '1.0.0-rc2'
+      java8ModuleVersion = '0.9.0-1'
+    }
+
+    dependencies {
+      compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-assets:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-views:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-forms:${dropwizardVersion}"
+      
+      compile "io.dropwizard:dropwizard-views-freemarker:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-migrations:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-hibernate:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-jdbi:${dropwizardVersion}"
+      compile "io.dropwizard:dropwizard-auth:${dropwizardVersion}"
+
+      compile "mysql:mysql-connector-java:5.1.34"
+
+      compile "commons-validator:commons-validator:1.4.1"
+
+      compile "io.dropwizard.modules:dropwizard-java8:${java8ModuleVersion}"
+      compile "io.dropwizard.modules:dropwizard-java8-auth:${java8ModuleVersion}"
+      compile "io.dropwizard.modules:dropwizard-java8-jdbi:${java8ModuleVersion}"
+
+      compile "org.jadira.usertype:usertype.extended:3.2.0.GA"
+
+      testCompile "junit:junit:4.11"
+      testCompile "org.assertj:assertj-core:2.0.0"
+      testCompile "io.dropwizard:dropwizard-testing:${dropwizardVersion}"    
+    }
+
+    version = '1.0'
+
+    jar {
+        manifest.attributes provider: 'Pechika inc'
+    }
+
+    task wrapper(type: Wrapper) {
+      gradleVersion = '2.12'
+    }   
+
+}
