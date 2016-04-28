@@ -16,4 +16,6 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'dropwizard'
+include 'pechika-api'
+include 'pechika-client'
+include 'pechika-application'
